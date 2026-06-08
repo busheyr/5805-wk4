@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Talent as a Strategic Asset</title>
+<title>Talent Development and Organizational Performance</title>
 <style>
 *, *::before, *::after { box-sizing:border-box; }
 html { font-size:62.5%; min-height:100%; max-width:100vw; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
@@ -39,22 +39,18 @@ body { margin:0; min-height:100vh; min-height:100dvh; background:#fff; font-fami
 .panel { border:1px solid var(--line); border-radius:.8rem; padding:2.2rem; background:#fff; }
 .panel.green { border-left:.5rem solid var(--green); }
 .panel.blue { border-left:.5rem solid var(--blue); }
-.grid-2, .grid-3, .grid-4 { display:grid; gap:1.8rem; margin-top:2rem; }
+.grid-2, .grid-3 { display:grid; gap:1.8rem; margin-top:2rem; }
 .grid-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
 .grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
-.grid-4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
 .mini-card { border:1px solid var(--line); border-radius:.8rem; padding:2rem; background:#fff; min-height:100%; }
 .mini-card h3, .mini-card h4 { color:#0d3155; }
 .label { display:inline-block; color:var(--green); font-size:1.35rem; font-weight:800; letter-spacing:0; text-transform:uppercase; margin-bottom:.5rem; }
-.circle-list { padding-left:0 !important; list-style:none; margin-top:2rem; display:grid; gap:1.2rem; }
-.circle-list li { display:flex; align-items:flex-start; margin:0; }
-.circle-num { width:3.2rem; height:3.2rem; border-radius:50%; background:var(--blue); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; margin-right:1rem; flex:0 0 auto; }
 .reveal-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(23rem,1fr)); gap:1.6rem; margin-top:2rem; }
 .reveal-card { border:1px solid var(--line); border-radius:.8rem; background:#fff; overflow:hidden; }
 .reveal-btn { width:100%; border:0; background:#eef6ff; color:#10243a; padding:1.6rem; font-size:1.8rem; font-weight:700; text-align:left; cursor:pointer; }
 .reveal-content { display:none; padding:1.8rem; }
 .reveal-card.open .reveal-content { display:block; }
-.accordion { border:1px solid #d9e1ea; border-radius:.8rem; overflow:hidden; background:#fff; }
+.accordion { border:1px solid #d9e1ea; border-radius:.8rem; overflow:hidden; background:#fff; margin-top:2rem; }
 .accordion-item + .accordion-item { border-top:1px solid #d9e1ea; }
 .accordion-header { background:#f7f9fb; padding:1.6rem 1.8rem; cursor:pointer; font-size:1.8rem; font-weight:700; }
 .accordion-content { display:none; padding:1.8rem; background:#fff; }
@@ -77,14 +73,11 @@ body { margin:0; min-height:100vh; min-height:100dvh; background:#fff; font-fami
 .comparison { display:grid; grid-template-columns:1fr 1fr; gap:1.8rem; margin-top:2rem; }
 .comparison .panel:first-child { border-top:.5rem solid #7a8a9a; }
 .comparison .panel:last-child { border-top:.5rem solid var(--green); }
-.matrix { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.4rem; margin-top:2rem; }
-.matrix-cell { border:1px solid var(--line); border-radius:.8rem; padding:2rem; background:#fff; }
-.matrix-cell strong { display:block; color:#0d3155; margin-bottom:.6rem; }
-.matrix-cell.highlight { background:#f4f9ff; border-color:#9ccaff; }
-.reflection-list { display:grid; gap:1rem; margin-top:1.8rem; }
-.reflection-item { border:1px solid var(--line); background:#fff; border-radius:.8rem; padding:1.5rem 1.7rem; display:flex; gap:1rem; align-items:flex-start; cursor:pointer; }
-.reflection-item input { margin-top:.75rem; flex:0 0 auto; }
-.reflection-item span { display:block; }
+.mechanism-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.6rem; margin-top:2rem; }
+.mechanism-card { background:#fff; border:1px solid var(--line); border-radius:.8rem; padding:2rem; border-top:.5rem solid var(--blue); }
+.mechanism-card:nth-child(even) { border-top-color:var(--green); }
+.prompt-card { background:#10243a; color:#fff; border-radius:.8rem; padding:2.4rem; margin-top:2.6rem; font-weight:700; }
+.prompt-card p { margin-bottom:0; }
 .continue-wrap { width:100%; margin:3rem 0; }
 .continue-btn { width:100%; border:0; border-radius:.8rem; background:#006649; color:#fff; min-height:6.4rem; font-size:1.9rem; font-weight:800; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 .4rem 1.6rem rgba(0,102,73,.18); transition:background .2s ease, transform .2s ease; }
 .continue-btn:hover { background:#00563e; transform:translateY(-1px); }
@@ -92,7 +85,7 @@ body { margin:0; min-height:100vh; min-height:100dvh; background:#fff; font-fami
 .section-divider h2 { margin-bottom:0; }
 @media (max-width:850px) {
   .rise-shell__header { align-items:flex-start; flex-direction:column; }
-  .split, .grid-2, .grid-3, .grid-4, .choice-block, .comparison, .matrix { grid-template-columns:1fr; }
+  .split, .grid-2, .grid-3, .choice-block, .comparison, .mechanism-list { grid-template-columns:1fr; }
   .rise-block { padding:3rem 2rem; margin-block:4rem; }
   .rise-page { padding:0 1.8rem; }
 }
@@ -109,279 +102,166 @@ body { margin:0; min-height:100vh; min-height:100dvh; background:#fff; font-fami
 </svg>
 
 <div class="cover-screen" id="cover">
-  <div class="cover-title">Talent as a Strategic Asset</div>
-  <button class="cover-btn" id="coverBegin">Begin</button>
+  <div class="cover-title">Talent Development and Organizational Performance</div>
+  <button class="cover-btn" id="coverBegin">Welcome to Week 4</button>
 </div>
 
 <div class="rise-shell">
 <header class="rise-shell__header">
-  <div class="rise-shell__title">Talent as a Strategic Asset</div>
-  <div class="rise-shell__meta">Student-Facing Strategy Module</div>
+  <div class="rise-shell__title">Talent Development and Organizational Performance</div>
+  <div class="rise-shell__meta">Welcome to Week 4</div>
 </header>
 <main class="rise-shell__body">
 <div class="rise-page">
 
 <section class="rise-block hero">
-  <h1>Talent as a Strategic Asset</h1>
-  <p>To treat talent as a strategic asset is to understand human capability as a source of organizational value, not merely as a cost to be controlled or a staffing problem to be solved. In strategic management, this view shifts attention from filling positions to building capabilities that help an organization pursue its mission, adapt to uncertainty, and sustain performance over time.</p>
-  <div class="callout">The central purpose of talent strategy is to align people, roles, culture, leadership, and learning with the organization’s long-term direction.</div>
-  <div class="grid-3">
-    <div class="mini-card">
-      <span class="label">Strategic Question</span>
-      <p>What kinds of human capability does the organization need in order to deliver on its mission and compete or serve effectively?</p>
-    </div>
-    <div class="mini-card">
-      <span class="label">Managerial Question</span>
-      <p>How should leaders recruit, develop, motivate, and retain people so that individual performance becomes collective capacity?</p>
-    </div>
-    <div class="mini-card">
-      <span class="label">Ethical Question</span>
-      <p>How can the organization pursue performance while also protecting dignity, fairness, inclusion, and meaningful growth?</p>
-    </div>
-  </div>
+  <h1>Talent Development and Organizational Performance</h1>
+  <h2>Welcome to Week 4</h2>
+  <p>Welcome to Week 4. For the past three weeks, we have been looking at the invisible forces that govern organizations: the underlying assumptions of culture, the interdependencies of systems, and the structural barriers to performance.</p>
+  <p class="callout2">This week, we turn our attention to the most visible, tangible, and critical asset in any organization: the people.</p>
+  <p>"Talent development" is often treated as an HR function — a series of processes related to hiring, onboarding, annual reviews, and training modules. But from an executive leadership perspective, talent development is not an HR function. It is a strategic imperative. The ability to attract, retain, and develop high-performing individuals is the single greatest predictor of an organization's long-term success.</p>
+  <div class="callout">By the end of this week, you will be able to evaluate your organization's talent strategy not as a set of HR policies, but as a reflection of its leadership culture.</div>
 </section>
 
 <section class="rise-block tint">
-  <h2>The Core Idea</h2>
+  <h2>Section 1: Talent as a Strategic Asset</h2>
   <div class="split">
     <div>
-      <p>Talent becomes strategic when it is connected to the organization’s theory of value creation. A hospital, university, public agency, technology firm, or community nonprofit may all need talented people, but they do not need identical talent systems. The relevant question is not simply whether employees are skilled. The deeper question is whether the organization has the right mix of expertise, judgment, relationships, motivation, and learning capacity to do the work that matters most.</p>
-      <p>This perspective draws from the resource-based view of the firm, human capital theory, and organizational behavior. It asks leaders to identify capabilities that are valuable, difficult to imitate, socially embedded, and difficult to replace. In practice, those capabilities often live not in isolated individuals but in teams, routines, norms, and leadership practices.</p>
+      <p>Let us begin with a fundamental premise: Organizations succeed through people, not just systems.</p>
+      <p>A system can be perfectly designed, but if the people operating it lack the necessary skills, engagement, or alignment with the organization's goals, the system will fail. Talent is the engine that powers the system.</p>
     </div>
     <div class="panel green">
-      <h3>Purpose of the Concept</h3>
-      <ul>
-        <li><strong>Clarify capability requirements:</strong> Leaders must define the knowledge, skills, judgment, and relational capacities required by strategy rather than relying on generic job descriptions.</li>
-        <li><strong>Connect people systems:</strong> Recruitment, development, performance management, succession planning, and retention should reinforce one another instead of operating as separate administrative tasks.</li>
-        <li><strong>Support strategic adaptation:</strong> Talent systems should help the organization learn as conditions change, because yesterday’s capabilities may not solve tomorrow’s problems.</li>
-      </ul>
+      <p>However, talent strategy must align with the organization's mission and goals. This is where many organizations struggle. They may have a stated goal of "rapid innovation," but their recruitment process selects for extreme risk aversion. They may claim to value "collaborative teamwork," but their compensation and promotion structures reward hyper-competitive individual achievement.</p>
     </div>
+  </div>
+  <div class="prompt-card">
+    <p>When evaluating an organization's approach to talent, the first question a leader must ask is: Does our talent strategy actually support our strategic objectives? If the organization needs to be agile and adaptive, is it hiring, training, and rewarding people who demonstrate agility? Or is it simply hiring for technical proficiency and hoping agility follows?</p>
   </div>
 </section>
 
 <section class="rise-block alt">
-  <h2>Three Lenses for Understanding Talent</h2>
-  <p>Different scholarly traditions emphasize different dimensions of talent. Use the tabs below to compare how each lens changes what leaders notice and what they are likely to prioritize.</p>
+  <h2>Section 2: Leadership Styles and Organizational Climate — Goleman</h2>
+  <p>If talent is the engine, leadership is the climate in which that engine operates.</p>
+  <p>In his landmark article, "Leadership That Gets Results," Daniel Goleman demonstrates that a leader's style is not merely a matter of personality; it is a measurable driver of organizational performance. Goleman’s research found that leadership style dictates the "climate" of the organization (the working environment), and that climate accounts for nearly a third of financial results.</p>
+  <p>Goleman identifies six distinct leadership styles, each rooted in different components of emotional intelligence:</p>
   <div class="rise-tabs">
-    <button class="tab-btn active" type="button" data-group="talent-lenses" data-target="lens-human-capital">Human Capital</button>
-    <button class="tab-btn" type="button" data-group="talent-lenses" data-target="lens-social-capital">Social Capital</button>
-    <button class="tab-btn" type="button" data-group="talent-lenses" data-target="lens-organizational-capability">Organizational Capability</button>
+    <button class="tab-btn active" type="button" data-group="goleman-styles" data-target="style-coercive">Coercive</button>
+    <button class="tab-btn" type="button" data-group="goleman-styles" data-target="style-authoritative">Authoritative</button>
+    <button class="tab-btn" type="button" data-group="goleman-styles" data-target="style-affiliative">Affiliative</button>
+    <button class="tab-btn" type="button" data-group="goleman-styles" data-target="style-democratic">Democratic</button>
+    <button class="tab-btn" type="button" data-group="goleman-styles" data-target="style-pacesetting">Pacesetting</button>
+    <button class="tab-btn" type="button" data-group="goleman-styles" data-target="style-coaching">Coaching</button>
   </div>
-  <div class="tab-content active" data-group="talent-lenses" id="lens-human-capital">
-    <div class="panel">
-      <h3>Human Capital</h3>
-      <p>Human capital refers to the knowledge, skills, abilities, and experience that individuals bring to work. This lens helps leaders ask whether the organization has enough clinical expertise, technical fluency, analytical skill, managerial judgment, or professional competence to execute its mission.</p>
-      <p>Its limitation is that it can overemphasize individual attributes. A highly capable individual may underperform in a poorly designed role, a mistrustful team, or a culture that discourages learning.</p>
-    </div>
+  <div class="tab-content active" data-group="goleman-styles" id="style-coercive">
+    <div class="panel"><p>Coercive: Demands immediate compliance ("Do what I tell you").</p></div>
   </div>
-  <div class="tab-content" data-group="talent-lenses" id="lens-social-capital">
-    <div class="panel">
-      <h3>Social Capital</h3>
-      <p>Social capital refers to the quality of relationships, trust, shared language, and networks that allow people to coordinate work. This lens explains why two organizations with similarly skilled employees may produce very different outcomes.</p>
-      <p>Its strategic implication is that leaders must build collaboration, psychological safety, and cross-boundary communication rather than assuming that talent automatically combines itself into performance.</p>
-    </div>
+  <div class="tab-content" data-group="goleman-styles" id="style-authoritative">
+    <div class="panel"><p>Authoritative: Mobilizes people toward a vision ("Come with me").</p></div>
   </div>
-  <div class="tab-content" data-group="talent-lenses" id="lens-organizational-capability">
-    <div class="panel">
-      <h3>Organizational Capability</h3>
-      <p>Organizational capability refers to what the organization can reliably do because people, structures, routines, technologies, and culture work together. This lens moves beyond the question of who is talented and asks what the organization is capable of producing repeatedly.</p>
-      <p>For professional judgment, this is the most strategic lens: it connects individual development to systems, workflow, culture, and long-term institutional performance.</p>
-    </div>
+  <div class="tab-content" data-group="goleman-styles" id="style-affiliative">
+    <div class="panel"><p>Affiliative: Creates harmony and builds emotional bonds ("People come first").</p></div>
   </div>
-</section>
-
-<section class="rise-block">
-  <h2>Connected Subtopics</h2>
-  <p>Talent strategy is not a single program. It is an integrated architecture of decisions about how people enter, grow within, contribute to, and sometimes exit the organization. The accordion below separates the parts, but in practice they are mutually reinforcing.</p>
-  <div class="accordion">
-    <div class="accordion-item open">
-      <div class="accordion-header">Workforce Planning</div>
-      <div class="accordion-content">
-        <p>Workforce planning translates strategy into capability forecasts. It asks which roles, skills, and forms of judgment will be essential under likely future conditions. A scholarly approach treats planning as a dynamic process, not a headcount exercise, because demographic shifts, technology, regulation, and mission changes can alter the talent profile an organization needs.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">Recruitment and Selection</div>
-      <div class="accordion-content">
-        <p>Recruitment is strategic when it identifies people whose capabilities and values fit the work the organization must actually do. Selection should evaluate both current competence and capacity to learn. Overreliance on narrow credential screens can exclude promising candidates and reproduce existing inequities, while under-specified hiring criteria can weaken consistency and fairness.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">Development and Learning</div>
-      <div class="accordion-content">
-        <p>Development converts potential into capability. Formal training matters, but so do coaching, feedback, stretch assignments, reflective practice, and communities of learning. From a strategic perspective, development should prepare people for future complexity rather than only correcting present deficiencies.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">Retention and Engagement</div>
-      <div class="accordion-content">
-        <p>Retention is not reducible to pay, although compensation must be fair. People remain when they experience meaningful work, credible leadership, growth, belonging, psychological safety, and a reasonable exchange between contribution and reward. Retention problems often reveal deeper failures in role design, culture, workload, or trust.</p>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <div class="accordion-header">Succession and Leadership Pipeline</div>
-      <div class="accordion-content">
-        <p>Succession planning protects continuity by identifying and preparing people for roles that carry strategic risk. A mature leadership pipeline develops judgment, ethical reasoning, systems thinking, and the ability to lead across difference. It also reduces overdependence on a small number of charismatic or heroic individuals.</p>
-      </div>
-    </div>
+  <div class="tab-content" data-group="goleman-styles" id="style-democratic">
+    <div class="panel"><p>Democratic: Forges consensus through participation ("What do you think?").</p></div>
   </div>
-</section>
-
-<section class="rise-block tint">
-  <h2>How Talent Strategy Works in Practice</h2>
-  <p>A useful talent strategy links external demands, organizational mission, and internal capability. The sequence below shows the logic leaders should follow when moving from strategic intent to talent decisions.</p>
-  <div class="card-sequence">
-    <div class="sequence-card">
-      <div class="sequence-date">1. Diagnose the Strategic Context</div>
-      <p>Leaders begin by interpreting the environment: changing markets, community needs, regulation, technology, workforce demographics, and stakeholder expectations. This diagnosis clarifies what the organization must be able to do well.</p>
-    </div>
-    <div class="sequence-card">
-      <div class="sequence-date">2. Identify Critical Capabilities</div>
-      <p>The organization distinguishes ordinary staffing needs from capabilities that are central to mission performance. Examples might include interprofessional coordination, data-informed decision-making, culturally responsive service, innovation, or crisis leadership.</p>
-    </div>
-    <div class="sequence-card">
-      <div class="sequence-date">3. Align People Systems</div>
-      <p>Hiring, onboarding, evaluation, rewards, development, and succession planning are designed to reinforce the same capability priorities. Alignment matters because contradictory systems teach employees that stated priorities are not real priorities.</p>
-    </div>
-    <div class="sequence-card">
-      <div class="sequence-date">4. Measure and Learn</div>
-      <p>Leaders examine whether talent practices improve outcomes such as quality, productivity, innovation, engagement, equity, retention, and leadership continuity. Measurement should support learning and judgment, not merely surveillance.</p>
-    </div>
+  <div class="tab-content" data-group="goleman-styles" id="style-pacesetting">
+    <div class="panel"><p>Pacesetting: Sets high standards for performance ("Do as I do, now").</p></div>
   </div>
-</section>
-
-<section class="rise-block alt">
-  <h2>A Concrete Situation</h2>
-  <p>Consider a regional healthcare organization facing rising patient complexity, clinician burnout, and increased demand for digital care coordination. The organization cannot solve the problem by simply hiring more people into existing patterns of work. It must ask what forms of talent are strategically necessary.</p>
-  <div class="choice-block">
-    <div class="choice-menu">
-      <button class="choice-btn active" type="button" data-choice-group="case" data-choice-target="case-problem">Situation</button>
-      <button class="choice-btn" type="button" data-choice-group="case" data-choice-target="case-action">Talent Response</button>
-      <button class="choice-btn" type="button" data-choice-group="case" data-choice-target="case-judgment">Professional Judgment</button>
-    </div>
-    <div>
-      <div class="choice-panel active panel" id="case-problem" data-choice-group="case">
-        <h3>Situation</h3>
-        <p>Patient needs increasingly require coordinated work across physicians, nurses, social workers, pharmacists, data analysts, and community partners. Yet the existing talent system rewards individual productivity more than team-based problem solving.</p>
-      </div>
-      <div class="choice-panel panel" id="case-action" data-choice-group="case">
-        <h3>Talent Response</h3>
-        <p>Leaders redesign roles, recruit for collaborative judgment, build digital coordination skills, create team-based development experiences, and evaluate managers on retention and psychological safety. Talent is treated as a strategic lever because people systems are changed to support the organization’s future model of care.</p>
-      </div>
-      <div class="choice-panel panel" id="case-judgment" data-choice-group="case">
-        <h3>Professional Judgment</h3>
-        <p>The decision is not simply whether to hire more clinicians or buy new technology. The professional question is whether the organization has built the human, social, and organizational capability to use expertise and technology well.</p>
-      </div>
-    </div>
+  <div class="tab-content" data-group="goleman-styles" id="style-coaching">
+    <div class="panel green"><p>Coaching: Develops people for the future ("Try this").</p></div>
   </div>
-</section>
-
-<section class="rise-block">
-  <h2>Strategic Talent Decisions Require Tradeoffs</h2>
-  <p>Talent strategy always involves choices under constraint. Leaders must decide where to invest, what to prioritize, and how to balance efficiency with learning, fairness, and resilience. The comparison below highlights two common tensions.</p>
-  <div class="comparison">
-    <div class="panel">
-      <h3>Efficiency Logic</h3>
-      <p>An efficiency logic emphasizes cost control, standardized roles, immediate productivity, and measurable short-term outputs. It can protect resources and improve consistency, especially in stable environments.</p>
-      <p>The risk is that excessive efficiency can narrow learning, reduce autonomy, and leave the organization brittle when conditions change.</p>
-    </div>
-    <div class="panel">
-      <h3>Capability Logic</h3>
-      <p>A capability logic emphasizes development, adaptability, collaboration, and long-term readiness. It can strengthen resilience and innovation, especially when work is complex or uncertain.</p>
-      <p>The risk is that capability building requires time, investment, and disciplined evaluation; without focus, it can become vague or disconnected from performance.</p>
-    </div>
-  </div>
-</section>
-
-<section class="rise-block tint">
-  <h2>Assumptions, Limitations, and Cautions</h2>
-  <p>The language of strategic assets is powerful, but it must be used carefully. People are not inventory, machines, or financial instruments. They are moral agents with dignity, aspirations, constraints, identities, and rights. A scholarly approach therefore examines the assumptions embedded in talent strategy.</p>
   <div class="reveal-grid">
     <div class="reveal-card">
-      <button class="reveal-btn" type="button">Assumption: Talent can be identified objectively</button>
+      <button class="reveal-btn" type="button">Coaching Style</button>
       <div class="reveal-content">
-        <p>Organizations often assume that performance ratings, credentials, or leadership nominations objectively reveal talent. In reality, these measures may reflect access, bias, visibility, role opportunity, or similarity to existing leaders.</p>
+        <p>For our focus on talent development, the Coaching style is particularly relevant. The coaching leader focuses on personal development rather than immediate work-related tasks. They help employees identify their unique strengths and weaknesses and tie them to their personal and career aspirations.</p>
       </div>
     </div>
     <div class="reveal-card">
-      <button class="reveal-btn" type="button">Limitation: Individual talent is not enough</button>
+      <button class="reveal-btn" type="button">Least Used</button>
       <div class="reveal-content">
-        <p>High performers can be undermined by weak systems, poor supervision, unclear strategy, or toxic culture. Treating talent only as an individual trait misses the organizational conditions that allow capability to become performance.</p>
+        <p>Yet, Goleman found that the coaching style is the least used of the six styles. Leaders often claim they do not have the time for the slow, iterative work of coaching. But leaders who ignore this style are failing to develop their talent pipeline, leading to stagnation and higher turnover.</p>
       </div>
     </div>
     <div class="reveal-card">
-      <button class="reveal-btn" type="button">Tradeoff: Selectivity can conflict with inclusion</button>
+      <button class="reveal-btn" type="button">Effective Leaders</button>
       <div class="reveal-content">
-        <p>Organizations may focus development resources on a small group labeled high potential. This can be efficient, but it can also narrow opportunity, reinforce hierarchy, and overlook late-emerging or nontraditional forms of excellence.</p>
-      </div>
-    </div>
-    <div class="reveal-card">
-      <button class="reveal-btn" type="button">Caution: Metrics can distort judgment</button>
-      <div class="reveal-content">
-        <p>Talent dashboards can help leaders see patterns, but metrics become dangerous when they replace interpretation. Turnover, engagement, productivity, and promotion rates require contextual analysis before leaders draw conclusions.</p>
+        <p>Effective leaders do not rely on just one style. They are able to read the developmental needs of their team and shift seamlessly among the Authoritative, Affiliative, Democratic, and Coaching styles as the situation requires.</p>
       </div>
     </div>
   </div>
-</section>
-
-<section class="rise-block alt">
-  <h2>Decision Matrix: Reading a Talent Problem</h2>
-  <p>When an organization underperforms, leaders may misdiagnose the problem as a simple lack of talent. The matrix below helps students distinguish different explanations.</p>
-  <div class="matrix">
-    <div class="matrix-cell">
-      <strong>Capability Gap</strong>
-      <p>People do not yet have the knowledge, skill, or judgment required. The appropriate response may involve hiring, training, coaching, or redesigning learning pathways.</p>
-    </div>
-    <div class="matrix-cell highlight">
-      <strong>System Misalignment</strong>
-      <p>People may be capable, but structures, incentives, information flows, or workload make effective performance difficult. The appropriate response is organizational redesign, not blaming individuals.</p>
-    </div>
-    <div class="matrix-cell highlight">
-      <strong>Culture and Trust Problem</strong>
-      <p>People may withhold effort, voice, or creativity because the environment feels unsafe, unfair, or inconsistent. The appropriate response involves leadership credibility and cultural repair.</p>
-    </div>
-    <div class="matrix-cell">
-      <strong>Strategic Ambiguity</strong>
-      <p>People may be working hard toward unclear or competing priorities. The appropriate response is sharper strategic direction and a clearer connection between roles and mission.</p>
-    </div>
-  </div>
-</section>
-
-<section class="rise-block section-divider">
-  <h2>From Concept to Professional Practice</h2>
 </section>
 
 <section class="rise-block">
-  <h2>Reflection Checkpoint</h2>
-  <p>Use the prompts below to test whether a talent strategy is genuinely strategic. These questions are appropriate for leaders, analysts, educators, and students preparing to evaluate organizations.</p>
-  <div class="reflection-list">
-    <label class="reflection-item">
-      <input type="checkbox" />
-      <span><strong>Strategic fit:</strong> Can the organization explain which capabilities are essential to its mission and future environment?</span>
-    </label>
-    <label class="reflection-item">
-      <input type="checkbox" />
-      <span><strong>System alignment:</strong> Do hiring, development, evaluation, rewards, and succession systems reinforce the same capability priorities?</span>
-    </label>
-    <label class="reflection-item">
-      <input type="checkbox" />
-      <span><strong>Equity and access:</strong> Are opportunities for development distributed fairly, or are existing power patterns being reproduced?</span>
-    </label>
-    <label class="reflection-item">
-      <input type="checkbox" />
-      <span><strong>Learning capacity:</strong> Does the organization build capability for future uncertainty rather than only solving current staffing shortages?</span>
-    </label>
+  <h2>Section 3: Recruitment, Retention, and the Founder's Blueprint — Schein, Chapter 8</h2>
+  <p>How does an organization's approach to talent begin? In Chapter 8, Schein explains that the cultural DNA of an organization — including how it views and treats its people — is established early on by its founders or primary leaders.</p>
+  <div class="comparison">
+    <div class="panel">
+      <h3>Strict Oversight</h3>
+      <p>Founders embed their own assumptions about human nature into the organization. If a founder assumes that people are fundamentally lazy and need to be controlled, they will build a talent system based on strict oversight, rigid rules, and punitive measures. If a founder assumes that people are naturally motivated and capable of self-direction, they will build a system based on autonomy, trust, and continuous learning.</p>
+    </div>
+    <div class="panel">
+      <h3>Reinforcing Loop</h3>
+      <p>This early blueprint dictates recruitment and retention. Organizations tend to hire people who fit the existing cultural mold. Over time, this creates a powerful reinforcing loop: the organization hires people who share its assumptions, those people succeed and are promoted, and they in turn hire more people just like them.</p>
+    </div>
   </div>
-  <div class="continue-wrap">
-    <button class="continue-btn" type="button" data-reveal-target="concluding-insight">Continue to Concluding Insight</button>
+  <div class="accordion">
+    <div class="accordion-item open">
+      <div class="accordion-header">Hiring for Fit vs. Skill</div>
+      <div class="accordion-content">
+        <p>Hiring for Fit vs. Skill: While technical skills are necessary, "cultural fit" often determines long-term success and retention. However, leaders must be careful that hiring for "fit" does not become an excuse for hiring for "sameness," which stifles diversity of thought and innovation.</p>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-header">Retention Driven by Leadership</div>
+      <div class="accordion-content">
+        <p>Retention Driven by Leadership: People do not leave organizations; they leave leaders. While compensation and benefits matter, retention is primarily driven by the quality of leadership. Employees stay when they feel valued, when they see a clear path for professional growth, and when they trust the leadership team. If your organization has a retention problem, it is almost certainly a leadership problem.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<section class="rise-block alt" id="concluding-insight" hidden>
-  <h2>Concluding Insight</h2>
-  <p class="callout2">Talent strategy should teach students to see people systems as moral, social, and strategic systems at the same time.</p>
-  <p>For practice, the central lesson is that organizations do not become excellent simply by employing excellent individuals. They become more capable when leaders design conditions in which people can contribute, learn, collaborate, and exercise judgment in ways that advance the mission. This requires attention to strategy, culture, power, incentives, development, and ethics.</p>
-  <p>For your education, this means learning to ask better diagnostic questions. When you encounter a performance problem, do not immediately assume that people lack motivation or skill. Ask whether the organization has defined the capabilities it needs, built systems that cultivate those capabilities, and created a culture in which talent can become collective performance.</p>
+<section class="rise-block tint">
+  <h2>Section 4: Building the Fearless Pipeline — Edmondson, Chapters 6 &amp; 7</h2>
+  <p>We cannot discuss talent development without returning to psychological safety.</p>
+  <p>In Chapter 6 of The Fearless Organization, Edmondson demonstrates that psychological safety is the bedrock of team performance. You cannot develop talent in an environment of fear. If employees are afraid to admit mistakes, they cannot learn from them. If they are afraid to ask questions, they cannot develop new skills.</p>
+  <p class="callout2">Talent development requires a culture of continuous learning, and continuous learning requires psychological safety.</p>
+  <p>In Chapter 7, Edmondson shifts from theory to practice: Making it Happen. She outlines specific leadership behaviors required to build this environment:</p>
+  <div class="card-sequence">
+    <div class="sequence-card">
+      <div class="sequence-date">Setting the Stage</div>
+      <p>Setting the Stage: Framing the work as a learning problem, not an execution problem. Acknowledging that the environment is complex and that failure is a natural part of the process.</p>
+    </div>
+    <div class="sequence-card">
+      <div class="sequence-date">Inviting Participation</div>
+      <p>Inviting Participation: Actively asking for input, practicing inquiry, and creating structures that require team members to share their perspectives.</p>
+    </div>
+    <div class="sequence-card">
+      <div class="sequence-date">Responding Productively</div>
+      <p>Responding Productively: Expressing appreciation when people speak up, destigmatizing failure, and sanctioning clear violations of organizational values.</p>
+    </div>
+  </div>
+  <p>When leaders engage in these behaviors, they create a robust talent pipeline. Employees in fearless organizations are more engaged, more innovative, and more likely to stay. They are given the space to stretch their abilities, knowing that their leader will support them through the learning curve.</p>
+</section>
+
+<section class="rise-block alt">
+  <h2>Section 5: Leadership Pipelines and Succession Planning</h2>
+  <p>A critical component of talent development is the leadership pipeline. Organizations cannot rely solely on external hiring to fill executive roles; they must cultivate leaders from within.</p>
+  <div class="mechanism-list">
+    <div class="mechanism-card">
+      <p>This requires a deliberate strategy of succession planning. It means identifying high-potential individuals early and providing them with the experiences, mentorship, and coaching they need to prepare for future leadership roles.</p>
+    </div>
+    <div class="mechanism-card">
+      <p>It also requires leaders to embrace a mindset of abundance rather than scarcity. A secure leader takes pride in developing their team members, even if it means those individuals eventually outgrow their current roles and move on to other opportunities within (or outside) the organization. A leader who hoards talent or suppresses the growth of their subordinates to protect their own position is actively harming the organization.</p>
+    </div>
+  </div>
+</section>
+
+<section class="rise-block tint">
+  <h2>Closing Thoughts</h2>
+  <p>Talent development is the ultimate test of a leader's legacy. Long after you have moved on from a role, the people you hired, coached, and promoted will continue to shape the organization.</p>
+  <p>As you approach this week's discussion board, look critically at your organization's talent strategy. Move beyond the HR manual and look at the actual behaviors of leadership. Are leaders coaching? Is psychological safety present? Is the organization intentionally building its future leaders, or simply reacting to turnover as it happens?</p>
+  <div class="callout">By identifying the gaps in these areas, you can begin to formulate the strategic interventions necessary to build a truly high-performing workforce.</div>
 </section>
 
 </div>
@@ -439,8 +319,9 @@ document.querySelectorAll('.continue-btn').forEach(button => {
     const target = document.getElementById(button.dataset.revealTarget);
     if (!target) return;
     target.hidden = false;
-    button.closest('.continue-wrap').hidden = true;
-    target.scrollIntoView({ behavior:'smooth', block:'start' });
+    const wrapper = button.closest('.continue-wrap');
+    if (wrapper) wrapper.hidden = true;
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
 </script>
